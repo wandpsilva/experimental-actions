@@ -4,6 +4,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-RUN apk update && apk add bash git curl jq
+RUN apk update && apk add bash
 
 ENTRYPOINT ["/entrypoint.sh"]
