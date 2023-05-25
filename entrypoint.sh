@@ -4,3 +4,4 @@ set -e
 
 pwd
 ls
+cat README.md
