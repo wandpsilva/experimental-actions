@@ -5,4 +5,5 @@ readme=$(cat README.md | wc -l)
 
 if [ $readme -le 1 ]; then
       echo "Favor criar um readme para o projeto"
+      exit 1
 fi
