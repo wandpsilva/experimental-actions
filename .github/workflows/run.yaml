@@ -10,4 +10,4 @@ jobs:
         uses: ./
         with:
           n1: 5
-          n2: 0
+          n2: 3
