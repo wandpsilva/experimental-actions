@@ -17,6 +17,6 @@ do
       val=$(grep Mapper $f)
       if [ $val != "" ]; then
             echo "existe mapper no arquivo $f"
-            gh pr close ${INPUT_PRLINK} -c "PR fechada pois não atendeu o código não possui Mapper(componentModel = Spring)"
+            gh pr close ${inputs.prlink} -c "PR fechada pois não atendeu o código não possui Mapper(componentModel = Spring)"
       fi
 done
