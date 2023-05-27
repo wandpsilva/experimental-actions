@@ -3,7 +3,7 @@
 set -e
 
 
-if [ ${{ github.event_name }} != "pull_request" ]; then
+if [ ${github.event_name} != "pull_request" ]; then
       echo "Tipo de evento invalido para avaliacao de codigo"
 fi
 
@@ -21,6 +21,6 @@ do
       val=$(grep Mapper $f)
       if [ $val != "" ]; then
             echo "existe mapper"
-            gh pr close ${{ github.event.pull_request._links.self.href }} -c "PR fechada pois não atendeu o código não possui Mapper(componentModel = Spring)"
+            gh pr close ${github.event.pull_request._links.self.href} -c "PR fechada pois não atendeu o código não possui Mapper(componentModel = Spring)"
       fi
 done
