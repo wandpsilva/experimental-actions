@@ -19,5 +19,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
-    GH_TOKEN: ${{ github.token }}
