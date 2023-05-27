@@ -3,7 +3,7 @@
 set -e
 
 
-if [ ${{github.event_name != "pull_request"}} ]; then
+if [ ${{github.event_name}} != "pull_request" ]; then
       echo "Tipo de evento invalido para avaliacao de codigo"
 fi
 
