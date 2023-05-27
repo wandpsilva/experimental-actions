@@ -10,7 +10,7 @@ if [ $readme -le 3 ]; then
 fi
 
 
-echo ${INPUT_PRLINK}
+echo ${inputs.prlink}
 for f in ./*.java
 do
       echo $f
