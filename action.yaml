@@ -15,6 +15,10 @@ inputs:
     required: false
     description: 'github token'
     default: ${{ github.token }}
+  prlink:
+    required: false
+    description: 'PR link'
+    default: ${{ github.event.pull_request._links.self.href }}
   
 runs:
   using: 'docker'
