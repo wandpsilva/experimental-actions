@@ -11,6 +11,10 @@ inputs:
     required: true
     description: 'number 2'
     default: 3
+  gh_token:
+    required: false
+    description: 'github token'
+    default: ${{ github.token }}
   
 runs:
   using: 'docker'
