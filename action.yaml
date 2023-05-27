@@ -17,5 +17,7 @@ inputs:
     default: ${{ github.event.pull_request._links.self.href }}
   
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+  - run: entrypoint.sh
+    shell: bash
