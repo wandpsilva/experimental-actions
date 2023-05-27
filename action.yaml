@@ -19,3 +19,4 @@ runs:
     shell: bash
     env:
       PR: ${{ github.event.pull_request._links.self.href }}
+      GH_TOKEN: ${{ github.token }}
