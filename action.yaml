@@ -18,5 +18,5 @@ runs:
   - run: ./entrypoint.sh
     shell: bash
     env:
-      PR: ${{ github.event.pull_request._links.self.href }}
+      PR: ${{ github.event.pull_request._links.html.href }}
       GH_TOKEN: ${{ github.token }}
