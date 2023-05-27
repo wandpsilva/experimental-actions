@@ -10,13 +10,13 @@ if [ $readme -le 3 ]; then
 fi
 
 
-echo ${inputs.prlink}
+echo ${{ inputs.prlink }}
 for f in ./*.java
 do
       echo $f
       val=$(grep Mapper $f)
       if [ $val != "" ]; then
             echo "existe mapper no arquivo $f"
-            gh pr close ${inputs.prlink} -c "PR fechada pois não atendeu o código não possui Mapper(componentModel = Spring)"
+            gh pr close ${{ inputs.prlink }} -c "PR fechada pois não atendeu o código não possui Mapper(componentModel = Spring)"
       fi
 done
