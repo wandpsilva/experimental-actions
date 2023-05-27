@@ -9,8 +9,7 @@ if [ $readme -le 3 ]; then
       exit 1
 fi
 
-echo ${INPUT_GHTOKEN}
-gh auth login --with-token ${INPUT_GHTOKEN}
+gh auth login
 
 ls -la
 for f in ./*.java
