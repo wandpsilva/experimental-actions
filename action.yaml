@@ -11,13 +11,11 @@ inputs:
     required: true
     description: 'number 2'
     default: 3
-  prlink:
-    required: false
-    description: 'PR link'
-    default: ${{ github.event.pull_request._links.self.href }}
   
 runs:
   using: 'composite'
   steps:
   - run: ./entrypoint.sh
     shell: bash
+    env:
+      PR: ${{ github.event.pull_request._links.self.href }}
