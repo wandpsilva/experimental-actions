@@ -4,7 +4,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-RUN apk update && apk add bash
+RUN apk update && apk add bash && apk add curl
 
 RUN curl -Lo tmp/ghlinux.tar.gz \
   https://github.com/cli/cli/releases/download/v2.10.1/gh_2.10.1_linux_amd64.tar.gz \
