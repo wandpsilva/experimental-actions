@@ -9,7 +9,6 @@ if [ $readme -le 3 ]; then
       exit 1
 fi
 
-gh auth login
 
 ls -la
 for f in ./*.java
