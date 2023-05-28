@@ -1,16 +1,6 @@
 name: shell-action
 author: Wanderlucio P Silva
 description: this action is for testing my shell scripts as gh actions
-
-inputs:
-  n1:
-    required: true
-    description: 'number 1'
-    default: 2
-  n2:
-    required: true
-    description: 'number 2'
-    default: 3
   
 runs:
   using: 'composite'
