@@ -1,0 +1,23 @@
+name: "CLEAN UP"
+description: exclui branches fora do padrao
+title: "exclui branches"
+labels: ["clean"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Formulario para excluir branches fora do padrao
+
+  - type: textarea
+    id: branches
+    attributes:
+      label: ">>branches<<"
+      description: "branches que serao excluidas"
+      placeholder: |
+        feature/ex1
+        feature/ex2
+        ...
+
+    validations:
+      required: true
