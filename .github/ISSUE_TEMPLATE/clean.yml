@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Formulario para excluir branches fora do padrao
+        **Formulario para excluir branches fora do padrao**
 
   - type: textarea
     id: branches
