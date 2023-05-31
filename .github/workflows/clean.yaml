@@ -1,0 +1,20 @@
+name: CLEAN
+on:
+  issues:
+    types: [opened]
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: read issue
+        run: |
+          echo "numero da issue: ${{ github.event.issue.number }}"
+          echo "titulo da issue: ${{ github.event.issue.title }}"
+          echo "body da issue: ${{ github.event.issue.body }}"
+      
+      - name: show event infos
+        run: |
+          echo ${{ github.event }}
