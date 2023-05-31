@@ -4,6 +4,7 @@ on:
     types: [opened]
 jobs:
   execute:
+    if: github.event.issue.title == "[clean] branches"
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
@@ -17,4 +18,9 @@ jobs:
       
       - name: show event infos
         run: |
-          echo ${{ github.event }}
+          echo ${{ toJSON(github.event.issue) }}
+
+      - name: close issue
+        run: |
+          echo "closing issue!"
+          

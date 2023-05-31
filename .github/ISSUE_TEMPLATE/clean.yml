@@ -1,23 +1,32 @@
 name: "CLEAN UP"
 description: exclui branches fora do padrao
-title: "exclui branches"
+title: "[clean] branches"
 labels: ["clean"]
 
 body:
   - type: markdown
     attributes:
       value: |
-        Formulario para excluir branches fora do padrao
+        Formulario para exclusao de branches fora do padrao
+
+  - type: dropdown
+    id: confirm
+    attributes:
+      label: Confirma limpeza?
+      description: confirma limpeza de branches neste repositorio?
+      options:
+        - SIM
+        - NAO
+    validations:
+      required: true
 
   - type: textarea
     id: branches
     attributes:
-      label: ">>branches<<"
-      description: "branches que serao excluidas"
+      label: "Motivo da limpeza"
+      description: "descreva o motivo da limpeza"
       placeholder: |
-        feature/ex1
-        feature/ex2
-        ...
+        repositorio acumulou mais de x branches
 
     validations:
       required: true
