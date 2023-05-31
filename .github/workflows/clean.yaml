@@ -18,10 +18,8 @@ jobs:
           echo "body da issue: ${{ github.event.issue.body }}"
       
       - name: show event infos
-        run: |
-          echo ${{ toJSON(github) }}
+        run: echo '${{ toJSON(github) }}'
 
       - name: close issue
-        run: |
-          echo "closing issue!"
+        run: echo "closing issue!"
           
