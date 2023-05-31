@@ -19,6 +19,7 @@ jobs:
       - name: show event infos
         run: |
           echo ${{ toJSON(github.event.issue) }}
+        shell: bash
 
       - name: close issue
         run: |
