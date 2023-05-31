@@ -4,7 +4,7 @@ on:
     types: [opened]
 jobs:
   execute:
-    if: github.event.issue.title == "[clean] branches"
+    if: github.event.issue.title == '[clean] branches'
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
