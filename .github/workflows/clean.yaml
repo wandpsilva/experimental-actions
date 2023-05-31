@@ -18,8 +18,7 @@ jobs:
       
       - name: show event infos
         run: |
-          echo ${{ github.event.issue }}
-        shell: bash
+          echo github.event.issue
 
       - name: close issue
         run: |
