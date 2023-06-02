@@ -21,5 +21,15 @@ jobs:
         run: echo '${{ toJSON(github) }}'
 
       - name: close issue
-        run: echo "closing issue!"
+        shell: bash
+        run: |
+          echo "closing issue..."
+          gh issue close -R "$(( github.event.repository ))" \
+          --reason "solved!" \
+          --comment "solved!" \
+          "${{ github.event.issue.number }}"
+          echo "issue successful closed!"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
           
