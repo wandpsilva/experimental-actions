@@ -28,7 +28,7 @@ jobs:
           echo "======================================================"
           echo "closing issue..."
           gh issue close -R "${{ github.event.repository }}" \
-          --reason "solved!" \
+          --reason "completed" \
           --comment "solved!" \
           "${{ github.event.issue.number }}"
           echo "issue successful closed!"
