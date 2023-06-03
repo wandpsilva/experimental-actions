@@ -6,6 +6,7 @@ jobs:
   execute:
     # if: github.event.issue.title == '[clean] branches'
     if: contains(github.event.issue.title, '[clean]')
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
