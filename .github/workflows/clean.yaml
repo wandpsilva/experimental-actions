@@ -23,12 +23,16 @@ jobs:
       - name: close issue
         shell: bash
         run: |
+          echo "repository: ${{ github.event.repository }}"
+          echo "issue number: ${{ github.event.issue.number }}"
+          echo "======================================================"
           echo "closing issue..."
-          gh issue close -R "$(( github.event.repository ))" \
+          gh issue close -R "${{ github.event.repository }}" \
           --reason "solved!" \
           --comment "solved!" \
           "${{ github.event.issue.number }}"
           echo "issue successful closed!"
+          echo "======================================================"
         env:
           GH_TOKEN: ${{ github.token }}
 
