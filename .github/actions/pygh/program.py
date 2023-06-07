@@ -1,4 +1,5 @@
 from github import Github
+import os
 
 def run():
     token = os.environ['INPUT_GHTOKEN']
