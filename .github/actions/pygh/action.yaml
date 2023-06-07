@@ -5,7 +5,7 @@ inputs:
   ghtoken:
     description: gh token
     required: true
-    default: ${{ goithub.token }}
+    default: ${{ github.token }}
 runs:
   using: 'docker'
   image: 'Dockerfile'
