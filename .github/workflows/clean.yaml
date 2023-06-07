@@ -1,4 +1,4 @@
-name: CLEAN
+name: clean
 on:
   issues:
     types: [opened]
