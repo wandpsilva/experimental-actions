@@ -12,7 +12,6 @@ def run():
     g = Github(base_url="https://api.github.com/api/v3", login_or_token="access_token")
 
     repo = g.get_repo("PyGithub/PyGithub")
-    print(repo)
 
     # Then play with your Github objects:
     for repo in g.get_user().get_repos():
