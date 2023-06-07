@@ -7,13 +7,9 @@ def run():
 
     # using an access token
     g = Github(token)
-    print('TENTANDO EXIBIR TOKEN')
-    print(g)
 
     # Github Enterprise with custom hostname
-    g = Github(base_url="https://{hostname}/api/v3", login_or_token="access_token")
-    print('TENTANDO EXIBIR BASE URL')
-    print(g)
+    g = Github(base_url="https://api.github.com/api/v3", login_or_token="access_token")
 
     repo = g.get_repo("PyGithub/PyGithub")
     print(repo)
