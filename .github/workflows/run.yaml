@@ -17,7 +17,7 @@ jobs:
         shell: bash
 
       - name: run shell script
-        uses: ./
+        uses: ./.github/actions/shell
         with:
           n1: 5
           n2: 3

@@ -1,0 +1,8 @@
+name: PyGh
+author: Wanderlucio P da Silva
+description: gh action with python
+# inputs
+# outputs
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

@@ -11,16 +11,13 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-
       - name: read issue
         run: |
           echo "numero da issue: ${{ github.event.issue.number }}"
           echo "titulo da issue: ${{ github.event.issue.title }}"
-          echo "body da issue: ${{ github.event.issue.body }}"
-      
+          echo "body da issue: ${{ github.event.issue.body }}"      
       - name: show event infos
         run: echo '${{ toJSON(github) }}'
-
       - name: close issue
         shell: bash
         run: |
@@ -35,6 +32,4 @@ jobs:
           echo "issue successful closed!"
           echo "======================================================"
         env:
-          GH_TOKEN: ${{ github.token }}
-
-          
+          GH_TOKEN: ${{ github.token }}          
