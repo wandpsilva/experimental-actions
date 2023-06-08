@@ -1,10 +1,6 @@
 name: PyGh
 author: Wanderlucio P da Silva
 description: gh action with python
-inputs:
-  token:
-    description: gh token
-    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
