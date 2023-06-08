@@ -2,10 +2,9 @@ name: PyGh
 author: Wanderlucio P da Silva
 description: gh action with python
 inputs:
-  ghtoken:
+  token:
     description: gh token
     required: true
-    default: ${{ github.token }}
 runs:
   using: 'docker'
   image: 'Dockerfile'

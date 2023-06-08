@@ -2,7 +2,7 @@ from github import Github
 import os
 
 def run():
-    token = os.environ['INPUT_GHTOKEN']
+    token = os.environ['INPUT_TOKEN']
     print(token)
 
     # using an access token
