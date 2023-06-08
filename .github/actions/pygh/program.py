@@ -1,7 +1,10 @@
 import os
 
 def run():
-    print('Olá mundo!')
+    with open('Main.java') as f:
+        lines = f.readlines()
+
+    print('arquivo lido: ${lines}')
 
 
 if __name__ == '__main__':
