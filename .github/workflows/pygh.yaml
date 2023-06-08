@@ -7,7 +7,6 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
+      - run: ls -la
       - name: execute
         uses: ./.github/actions/pygh
-        env:
-          token: ${{ secrets.TOKEN }}
