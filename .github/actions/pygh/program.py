@@ -26,8 +26,9 @@ def call_gh_api():
     headers = {
         'Accept': "application/vnd.github+json",
         'X-GitHub-Api-Version': "2022-11-28",
-        'Authorization': "Bearer {token}"
+        'Authorization': "Bearer " + token
     }
+    print(headers)
     data = requests.get(url, headers=headers, params=querystring, verify=False)
     response = json.loads(data.content)
     print(response)
