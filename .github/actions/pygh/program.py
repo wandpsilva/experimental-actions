@@ -20,12 +20,13 @@ def read_files():
 
 
 def call_gh_api():
+    token = os.environ['INPUT_TK']
     url = "https://api.github.com/search/repositories?"
     querystring = {"q":"wandpsilva"}
     headers = {
         'Accept': "application/vnd.github+json",
         'X-GitHub-Api-Version': "2022-11-28",
-        'Authorization': "Bearer "
+        'Authorization': "Bearer {token}"
     }
     data = requests.get(url, headers=headers, params=querystring, verify=False)
     response = json.loads(data.content)
