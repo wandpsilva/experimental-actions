@@ -13,13 +13,16 @@ def run():
 
 
 def read_files():
+    print("####### VALIDATING FILES #######")
     with open('Main.java') as f:
         lines = f.readlines()
 
     print(f'arquivo lido: ${lines}')
+    print("################################")
 
 
 def call_gh_api():
+    print("######## GETTING REPOS ########")
     token = os.environ['INPUT_TK']
     url = "https://api.github.com/search/repositories?"
     querystring = {"q":"wandpsilva"}
@@ -28,13 +31,14 @@ def call_gh_api():
         'X-GitHub-Api-Version': "2022-11-28",
         'Authorization': "Bearer " + token
     }
-    print(headers)
     data = requests.get(url, headers=headers, params=querystring, verify=False)
     response = json.loads(data.content)
 
     items = response['items']
     for item in items:
         print(item['name'])
+    
+    print("################################")
 
 
 if __name__ == '__main__':
