@@ -30,9 +30,10 @@ def call_gh_api():
     }
     data = requests.get(url, headers=headers, params=querystring, verify=False)
     response = json.loads(data.content)
+    print(response)
 
-    repo_name = response['items'][0]['name']
-    print(repo_name)
+    #repo_name = response['items'][0]['name']
+    #print(repo_name)
 
 
 if __name__ == '__main__':
