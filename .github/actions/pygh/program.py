@@ -16,7 +16,7 @@ def validate_mapper():
     print("-------------- VALIDATING MAPPER ---------------")
 
     with open('Main.java', 'r') as f:
-        data = f.readlines()
+        data = f.read()
 
     print(data)
 
