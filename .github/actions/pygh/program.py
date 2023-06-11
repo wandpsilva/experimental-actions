@@ -6,24 +6,33 @@ import json
 def run():
 
     try:
-        call_gh_api()
-        read_files()
+        #call_gh_api()
+        validate_mapper()
     except Exception as ex:
         print(f'ERRO: {ex}')
 
 
-def read_files():
-    print("####### VALIDATING FILES #######")
+def validate_mapper():
+    print("-------------- VALIDATING MAPPER ---------------")
+
     with open('Main.java') as f:
         lines = f.readlines()
 
-    print(f'arquivo lido: ${lines}')
-    print("################################")
+    if "@Mapper" in lines:
+        print("Foi encontrado um mapper!")
+        if "componentModel" not in lines:
+            print("Mapper não possui a anotação componentmodel = spring")
+        else:
+            print("anotação componentmodel encontrada!")
+        
+
+    print("----------------------------------------------")
 
 
 def call_gh_api():
-    print("######## GETTING REPOS ########")
+    print("---------------- GETTING REPOS ----------------")
     token = os.environ['INPUT_TK']
+
     url = "https://api.github.com/search/repositories?"
     querystring = {"q":"wandpsilva"}
     headers = {
@@ -38,7 +47,7 @@ def call_gh_api():
     for item in items:
         print(item['name'])
     
-    print("################################")
+    print("----------------------------------------------")
 
 
 if __name__ == '__main__':
