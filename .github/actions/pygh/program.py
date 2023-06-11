@@ -15,11 +15,11 @@ def run():
 def validate_mapper():
     print("-------------- VALIDATING MAPPER ---------------")
 
-    with open('Main.java', r) as f:
+    with open('Main.java', 'r') as f:
         data = f.readlines()
 
     print(data)
-    
+
     if "@Mapper" in data:
         print("Foi encontrado um mapper!")
         if "componentModel" not in data:
