@@ -15,12 +15,14 @@ def run():
 def validate_mapper():
     print("-------------- VALIDATING MAPPER ---------------")
 
-    with open('Main.java') as f:
-        lines = f.readlines()
+    with open('Main.java', r) as f:
+        data = f.readlines()
 
-    if "@Mapper" in lines:
+    print(data)
+    
+    if "@Mapper" in data:
         print("Foi encontrado um mapper!")
-        if "componentModel" not in lines:
+        if "componentModel" not in data:
             print("Mapper não possui a anotação componentmodel = spring")
         else:
             print("anotação componentmodel encontrada!")
