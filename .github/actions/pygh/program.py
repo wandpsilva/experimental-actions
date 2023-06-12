@@ -2,14 +2,24 @@ import os
 import requests
 import sys
 import json
+import subprocess
 
 def run():
 
     try:
         #call_gh_api()
+        compile()
         validate_mapper()
     except Exception as ex:
         print(f'ERRO: {ex}')
+        sys.exit(1)
+
+
+def compile():
+    try:
+        subprocess.run(['javac', 'Main.java'], check=True)
+    except subprocess.CalledProcessError:
+        print('Erro ao compilar o programa!')
 
 
 def validate_mapper():
@@ -17,8 +27,6 @@ def validate_mapper():
 
     with open('Main.java', 'r') as f:
         data = f.read()
-
-    print(data)
 
     if "@Mapper" in data:
         print("Foi encontrado um mapper!")
