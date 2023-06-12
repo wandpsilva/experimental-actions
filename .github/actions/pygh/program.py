@@ -5,38 +5,16 @@ import json
 import subprocess
 
 def run():
-
     try:
+        validate()
         #call_gh_api()
-        compile()
-        validate_mapper()
     except Exception as ex:
         print(f'ERRO: {ex}')
         sys.exit(1)
 
 
 def compile():
-    try:
-        subprocess.run(['javac', 'Main.java'], check=True)
-    except subprocess.CalledProcessError:
-        print('Erro ao compilar o programa!')
-
-
-def validate_mapper():
-    print("-------------- VALIDATING MAPPER ---------------")
-
-    with open('Main.java', 'r') as f:
-        data = f.read()
-
-    if "@Mapper" in data:
-        print("Foi encontrado um mapper!")
-        if "componentModel" not in data:
-            print("Mapper não possui a anotação componentmodel = spring")
-        else:
-            print("anotação componentmodel encontrada!")
-        
-
-    print("----------------------------------------------")
+    subprocess.run(['terraform validate'], check=True)
 
 
 def call_gh_api():
