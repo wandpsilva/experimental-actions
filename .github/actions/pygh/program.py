@@ -14,7 +14,7 @@ def run():
 
 
 def compile():
-    subprocess.run(['terraform validate'], check=True)
+    subprocess.run(['terraform', 'validate'], check=True)
 
 
 def call_gh_api():
