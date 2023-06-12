@@ -13,7 +13,8 @@ def run():
         sys.exit(1)
 
 
-def compile():
+def validate():
+    subprocess.run(['terraform', 'init'], check=True)
     subprocess.run(['terraform', 'validate'], check=True)
 
 
