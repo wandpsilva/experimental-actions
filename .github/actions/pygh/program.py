@@ -14,7 +14,10 @@ def run():
 
 
 def validate():
+    print('### iniciando terraform ###')
     subprocess.run(['terraform', 'init'], check=True)
+
+    print('### validando código terraform ###')
     subprocess.run(['terraform', 'validate'], check=True)
 
 
