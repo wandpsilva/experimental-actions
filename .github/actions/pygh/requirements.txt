@@ -3,3 +3,4 @@ jmespath==1.0.1
 python-dateutil==2.8.2
 urllib3==1.26.12
 requests
+PyGithub

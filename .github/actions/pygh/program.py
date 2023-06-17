@@ -3,11 +3,17 @@ import requests
 import sys
 import json
 import subprocess
+from github import Github
+from github import Auth
 
 def run():
     try:
-        validate()
-        #call_gh_api()
+        token = os.environ['INPUT_TK']
+
+        #validate()
+        #call_gh_api(token)
+        call_gh_pygithub(token)
+
     except Exception as ex:
         print(f'ERRO: {ex}')
         sys.exit(1)
@@ -21,9 +27,8 @@ def validate():
     subprocess.run(['terraform', 'validate'], check=True)
 
 
-def call_gh_api():
+def call_gh_api(token):
     print("---------------- GETTING REPOS ----------------")
-    token = os.environ['INPUT_TK']
 
     url = "https://api.github.com/search/repositories?"
     querystring = {"q":"wandpsilva"}
@@ -39,6 +44,19 @@ def call_gh_api():
     for item in items:
         print(item['name'])
     
+    print("----------------------------------------------")
+
+
+def call_gh_pygithub(token):
+    print("---------------- GETTING REPOS ----------------")
+
+    auth = Auth.Token(token)
+    g = Github(auth=auth)
+    g = Github(base_url="https://api.github.com/api/v3", auth=auth)
+
+    for repo in g.get_user().get_repos():
+        print(repo.name)
+
     print("----------------------------------------------")
 
 
