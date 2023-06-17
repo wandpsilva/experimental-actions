@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.9.17-slim-bullseye
 
 COPY requirements.txt /requirements.txt
 
