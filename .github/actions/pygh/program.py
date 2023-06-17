@@ -4,7 +4,7 @@ import sys
 import json
 import subprocess
 from github import Github
-from github import Auth
+#from github import Auth
 
 def run():
     try:
@@ -50,9 +50,9 @@ def call_gh_api(token):
 def call_gh_pygithub(token):
     print("---------------- GETTING REPOS ----------------")
 
-    auth = Auth.Token(token)
-    g = Github(auth=auth)
-    g = Github(base_url="https://api.github.com/api/v3", auth=auth)
+    #auth = Auth.Token(token)
+    g = Github(token)
+    g = Github(base_url="https://api.github.com/api/v3", login_or_token=token)
 
     for repo in g.get_user().get_repos():
         print(repo.name)
