@@ -52,7 +52,7 @@ def call_gh_pygithub(token):
 
     #auth = Auth.Token(token)
     g = Github(token)
-    g = Github(base_url="https://{hostname}/api/v3/api/v3", login_or_token=token)
+    g = Github(base_url="https://{hostname}/api/v3", login_or_token=token)
 
     for repo in g.get_user().get_repos():
         print(repo.name)
