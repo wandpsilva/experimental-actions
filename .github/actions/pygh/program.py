@@ -10,21 +10,12 @@ def run():
     try:
         token = os.environ['INPUT_TK']
 
-        #validate()
         #call_gh_api(token)
         call_gh_pygithub(token)
 
     except Exception as ex:
         print(f'ERRO: {ex}')
         sys.exit(1)
-
-
-def validate():
-    print('### iniciando terraform ###')
-    subprocess.run(['terraform', 'init'], check=True)
-
-    print('### validando código terraform ###')
-    subprocess.run(['terraform', 'validate'], check=True)
 
 
 def call_gh_api(token):
