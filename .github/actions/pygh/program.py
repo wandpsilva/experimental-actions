@@ -18,6 +18,18 @@ def run():
         sys.exit(1)
 
 
+def call_gh_pygithub(token):
+    print("---------------- GETTING REPOS ----------------")
+
+    g = Github(token)
+    g = Github(base_url="https://api.github.com", login_or_token=token)
+
+    for repo in g.get_user().get_repos():
+        print(repo.name)
+
+    print("----------------------------------------------")
+
+
 def call_gh_api(token):
     print("---------------- GETTING REPOS ----------------")
 
@@ -35,19 +47,6 @@ def call_gh_api(token):
     for item in items:
         print(item['name'])
     
-    print("----------------------------------------------")
-
-
-def call_gh_pygithub(token):
-    print("---------------- GETTING REPOS ----------------")
-
-    #auth = Auth.Token(token)
-    g = Github(token)
-    g = Github(base_url="https://api.github.com", login_or_token=token)
-
-    for repo in g.get_user().get_repos():
-        print(repo.name)
-
     print("----------------------------------------------")
 
 

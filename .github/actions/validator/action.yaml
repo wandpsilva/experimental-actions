@@ -1,6 +1,6 @@
-name: shell-action
+name: pull request validator
 author: Wanderlucio P Silva
-description: this action is for testing my shell scripts as gh actions
+description: this action is for testing my shell scripts in gh actions
   
 runs:
   using: 'composite'

@@ -1,4 +1,4 @@
-name: Run
+name: PR validator
 on: 
   pull_request: 
     types:
@@ -11,13 +11,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
       - name: show github variables
         run: echo "${{ toJSON(github) }}"
         shell: bash
-
-      - name: run shell script
-        uses: ./.github/actions/shell
-        with:
-          n1: 5
-          n2: 3
+      - name: run validation script
+        uses: ./.github/actions/validator

@@ -1,7 +1,7 @@
 name: clean
 on:
   issues:
-    types: [opened]
+    types: opened
 jobs:
   execute:
     # if: github.event.issue.title == '[clean] branches'
@@ -9,27 +9,26 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v3
-      - name: read issue
-        run: |
-          echo "numero da issue: ${{ github.event.issue.number }}"
-          echo "titulo da issue: ${{ github.event.issue.title }}"
-          echo "body da issue: ${{ github.event.issue.body }}"      
+      - name: checkout
+        uses: actions/checkout@v3     
       - name: show event infos
         run: echo '${{ toJSON(github) }}'
-      - name: close issue
+      - name: process
         shell: bash
         run: |
           echo "repository: ${{ github.repository }}"
-          echo "issue number: ${{ github.event.issue.number }}"
-          echo "======================================================"
+          echo "issue's number: ${{ github.event.issue.number }}"
+          echo "issue's title: ${{ github.event.issue.title }}"
+          echo "issue's body: ${{ github.event.issue.body }}"   
+          echo "----------------------------------------------------------"
+          echo "here I can call an action to clean up branches"
+          echo "----------------------------------------------------------"
           echo "closing issue..."
           gh issue close -R "${{ github.repository }}" \
           --reason "completed" \
           --comment "solved!" \
           "${{ github.event.issue.number }}"
           echo "issue successful closed!"
-          echo "======================================================"
+          echo "----------------------------------------------------------"
         env:
           GH_TOKEN: ${{ github.token }}          
