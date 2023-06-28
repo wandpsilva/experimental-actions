@@ -24,7 +24,7 @@ def call_gh_pygithub(token):
     g = Github(token)
     g = Github(base_url="https://api.github.com", login_or_token=token)
 
-    for repo in g.get_user().get_repos():
+    for repo in g.get_repo("wandpsilva/experimental-actions").get_branches():
         print(repo.name)
 
     print("----------------------------------------------")
