@@ -28,7 +28,9 @@ def call_gh_pygithub(token):
         branch_name = branch.name
         sha = branch.commit.sha
         commit = g.get_repo(repo).get_commit(sha)
-        current_date = commit.author.date
+        print(commit.commit.author.date)
+        print("-----------------------------------------")
+        current_date = commit.commit.author.date
         print(current_date)
         print("-----------------------------------------")
         if branch_name == "teste":
