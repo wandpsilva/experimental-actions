@@ -36,8 +36,8 @@ def call_gh_pygithub(token):
         print("-----------------------------------------")
         print(commit.commit.author.date)
         print("-----------------------------------------")
-        date = commit.author.date
-        print(date)
+        current_date = commit.author.date
+        print(current_date)
         print("-----------------------------------------")
         if branch_name == "teste":
             print(f'deleting branch: {branch_name}......')
