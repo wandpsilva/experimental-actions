@@ -28,8 +28,8 @@ def call_gh_pygithub(token):
 
     for branch in g.get_repo(repo).get_branches():
         branch_name = branch.name
-        print(branch.raw_data)
         print("-----------------------------------------")
+        print(branch.raw_data)
         if branch_name == "teste":
             print(f'deleting branch: {branch_name}......')
             try:
