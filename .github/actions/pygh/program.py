@@ -32,8 +32,8 @@ def call_gh_pygithub(token):
 
         print("-----------------------------------------")
         print(current_date)
-        
-        if branch_name == "teste":
+
+        if current_date.startswith("2023-07") and branch.name != "main":
             print(f'deleting branch: {branch_name}......')
             try:
                 ref = g.get_repo(repo).get_git_ref(f'heads/{branch_name}')
