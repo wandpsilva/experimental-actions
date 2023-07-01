@@ -19,13 +19,20 @@ def run():
 
 
 def call_gh_pygithub(token):
-    print("---------------- GETTING REPOS ----------------")
+    print("---------------- GETTING BRANCHES ----------------")
 
     g = Github(token)
     g = Github(base_url="https://api.github.com", login_or_token=token)
 
-    for repo in g.get_repo("wandpsilva/experimental-actions").get_branches():
-        print(repo.name)
+    repo = "wandpsilva/experimental-actions"
+
+    for branch in g.get_repo(repo).get_branches():
+        branch_name = branch.name
+        print(branch_name)
+        if branch_name == "teste":
+            print(f'deleting branch {branch_name}......')
+            g.get_git_ref(f'heads/{branch_name}').delete()
+            print(f'branch {branch_name} deleted.')
 
     print("----------------------------------------------")
 
