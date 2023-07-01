@@ -30,10 +30,9 @@ def call_gh_pygithub(token):
         branch_name = branch.name
         sha = branch.commit.sha
         commit = g.get_repo(repo).get_commit(sha)
-        print("-----------------------------------------")
-        print(sha)
-        print(commit)
+        print(commit.raw_data)
         print(branch.raw_data)
+        print("-----------------------------------------")
         if branch_name == "teste":
             print(f'deleting branch: {branch_name}......')
             try:
