@@ -32,6 +32,10 @@ def call_gh_pygithub(token):
         commit = g.get_repo(repo).get_commit(sha)
         print(commit.raw_data)
         print("-----------------------------------------")
+        print(commit.commit)
+        print("-----------------------------------------")
+        print(commit.commit.author.date)
+        print("-----------------------------------------")
         date = commit.author.date
         print(date)
         print("-----------------------------------------")
