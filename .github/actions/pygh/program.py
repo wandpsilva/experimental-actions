@@ -19,8 +19,6 @@ def run():
 
 
 def call_gh_pygithub(token):
-    print("---------------- GETTING BRANCHES ----------------")
-
     g = Github(token)
     g = Github(base_url="https://api.github.com", login_or_token=token)
 
@@ -30,12 +28,6 @@ def call_gh_pygithub(token):
         branch_name = branch.name
         sha = branch.commit.sha
         commit = g.get_repo(repo).get_commit(sha)
-        print(commit.raw_data)
-        print("-----------------------------------------")
-        print(commit.commit)
-        print("-----------------------------------------")
-        print(commit.commit.author.date)
-        print("-----------------------------------------")
         current_date = commit.author.date
         print(current_date)
         print("-----------------------------------------")
@@ -47,8 +39,6 @@ def call_gh_pygithub(token):
                 print(f'branch {branch_name} deleted.')
             except Exception:
                 print(f'No such branch: {branch_name}')
-
-    print("----------------------------------------------")
 
 
 def call_gh_api(token):
