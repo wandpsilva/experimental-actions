@@ -30,9 +30,13 @@ def call_gh_pygithub(token):
         branch_name = branch.name
         print(branch_name)
         if branch_name == "teste":
-            print(f'deleting branch {branch_name}......')
-            g.get_git_ref(f'heads/{branch_name}').delete()
-            print(f'branch {branch_name} deleted.')
+            print(f'deleting branch: {branch_name}......')
+            try:
+                ref = g.get_repo(repo).get_git_ref(f'heads/{branch_name}')
+                ref.delete()
+                print(f'branch {branch_name} deleted.')
+            except Exception:
+                print(f'No such branch: {branch_name}')
 
     print("----------------------------------------------")
 
