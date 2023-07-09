@@ -30,11 +30,9 @@ def call_gh_pygithub(token):
         commit = g.get_repo(repo).get_commit(sha)
         commit_date = commit.commit.author.date
 
-        print("-----------------------------------------")
-        print(commit_date)
-
         if commit_date.month == 7 and branch.name != "main":
-            print(f'deleting branch: {branch_name}......')
+            print("-------------------------------------------------")
+            print(f'deleting branch: {branch_name} because its last commit was in {commit_date}')
             try:
                 ref = g.get_repo(repo).get_git_ref(f'heads/{branch_name}')
                 ref.delete()
