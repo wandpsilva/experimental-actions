@@ -13,22 +13,27 @@ jobs:
         uses: actions/checkout@v3     
       - name: show event infos
         run: echo '${{ toJSON(github) }}'
-      - name: process
+      - name: reading issue
         shell: bash
         run: |
           echo "repository: ${{ github.repository }}"
           echo "issue's number: ${{ github.event.issue.number }}"
           echo "issue's title: ${{ github.event.issue.title }}"
           echo "issue's body: ${{ github.event.issue.body }}"   
-          echo "----------------------------------------------------------"
-          echo "here I can call an action to clean up branches"
-          echo "----------------------------------------------------------"
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: delete obsolete branches
+        uses: ./.github/actions/pygh
+        with:
+          tk: ${{ secrets.TOKEN }}
+      - name: process
+        shell: bash
+        run: |
           echo "closing issue..."
           gh issue close -R "${{ github.repository }}" \
           --reason "completed" \
           --comment "solved!" \
           "${{ github.event.issue.number }}"
           echo "issue successful closed!"
-          echo "----------------------------------------------------------"
         env:
-          GH_TOKEN: ${{ github.token }}          
+          GH_TOKEN: ${{ github.token }}         
