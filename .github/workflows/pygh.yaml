@@ -8,11 +8,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - run: ls -la
-      - name: get merged branches
-        id: branches
+      - id: branches
         run: |
-          teste=$(git branch --merged main)
-          echo $teste
+          echo "teste=$(git branch --merged)" >> "$GITHUB_OUTPUT"
+          echo ${{ steps.branches.outputs.teste }}
         shell: bash
       - name: execute
         uses: ./.github/actions/pygh
