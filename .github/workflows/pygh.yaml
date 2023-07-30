@@ -10,7 +10,7 @@ jobs:
       - run: ls -la
       - name: get merged branches
         id: branches
-        run: echo $(git branch --merged master) >> teste
+        run: echo $(git branch --merged main) >> teste
         shell: bash
       - name: execute
         uses: ./.github/actions/pygh
