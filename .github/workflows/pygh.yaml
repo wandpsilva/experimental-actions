@@ -16,4 +16,4 @@ jobs:
         uses: ./.github/actions/pygh
         with:
           tk: ${{ secrets.TOKEN }}
-          branches: ${{ step.branches.teste }}
+          branches: ${{ steps.branches.teste }}
