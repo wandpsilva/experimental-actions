@@ -11,7 +11,7 @@ jobs:
       - name: get merged branches
         id: branches
         run: |
-          echo $(git branch --merged main) >> teste 
+          echo teste=$(git branch --merged main)
           echo $teste
         shell: bash
       - name: execute

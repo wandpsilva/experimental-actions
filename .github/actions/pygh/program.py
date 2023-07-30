@@ -36,6 +36,7 @@ def call_gh_pygithub(token):
 
         if commit_date.month == 8 and branch.name != "main":
             # VERIFICAR SE O STATUS DA BRANCH É MERGED, SE SIM, DELETAR A MESMA
+            # VERIFICAR SE O COMMIT DA BRANCH LIDA EXISTE NA BRANCH MAIN
             
             print("-------------------------------------------------")
             print(f'deleting branch: {branch_name} because its last commit was in {commit_date}')
