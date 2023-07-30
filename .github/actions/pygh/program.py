@@ -26,11 +26,16 @@ def call_gh_pygithub(token):
 
     for branch in g.get_repo(repo).get_branches():
         branch_name = branch.name
+        print(f'nome da branch: {branch_name}')
+        print(f'dados da branch: {branch.raw_data}')
+        
         sha = branch.commit.sha
+        
         commit = g.get_repo(repo).get_commit(sha)
         commit_date = commit.commit.author.date
 
         if commit_date.month == 7 and branch.name != "main":
+            # VERIFICAR SE O STATUS DA BRANCH É MERGED, SE SIM, DELETAR A MESMA
             print("-------------------------------------------------")
             print(f'deleting branch: {branch_name} because its last commit was in {commit_date}')
             try:
