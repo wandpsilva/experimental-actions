@@ -11,7 +11,7 @@ jobs:
       - name: get merged branches
         id: branches
         run: echo $(git branch --merged master) >> teste
-        bash: shell
+        shell: bash
       - name: execute
         uses: ./.github/actions/pygh
         with:
