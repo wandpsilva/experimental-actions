@@ -10,10 +10,12 @@ jobs:
       - run: ls -la
       - name: get merged branches
         id: branches
-        run: echo $(git branch --merged main) >> teste
+        run: |
+          echo $(git branch --merged main) >> teste 
+          echo $teste
         shell: bash
       - name: execute
         uses: ./.github/actions/pygh
         with:
           tk: ${{ secrets.TOKEN }}
-          branches: ${{ steps.branches.teste }}
+          branches: ${{ steps.branches.outputs.teste }}
