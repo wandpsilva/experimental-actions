@@ -2,6 +2,7 @@ name: clean
 on:
   issues:
     types: opened
+    
 jobs:
   execute:
     # if: github.event.issue.title == '[clean] branches'

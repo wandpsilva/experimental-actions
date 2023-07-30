@@ -5,6 +5,9 @@ inputs:
   tk:
     description: gh token
     required: true
+  branches:
+    description: branches to be deleted
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
