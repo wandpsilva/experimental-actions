@@ -10,8 +10,11 @@ jobs:
       - run: ls -la
       - id: branches
         run: |
-          echo "teste=$(git branch --merged)" >> "$GITHUB_OUTPUT"
+          git branch --merged
+          echo "----------------------------------------------------------------------------------"
+          echo teste=$(git branch --merged) >> $GITHUB_OUTPUT
           echo ${{ steps.branches.outputs.teste }}
+          echo "----------------------------------------------------------------------------------"
         shell: bash
       - name: execute
         uses: ./.github/actions/pygh
